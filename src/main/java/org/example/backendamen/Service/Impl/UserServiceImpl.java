@@ -33,12 +33,14 @@ public class UserServiceImpl implements UserService {
         u.setFirstName(user.getFirstName());
         u.setLastName(user.getLastName());
         u.setEmail(user.getEmail());
+        u.setTelephone(user.getTelephone());
         User userRes =  userRepository.save(u);
         return UserResponse.builder()
                 .id(userRes.getId())
                 .firstName(userRes.getFirstName())
                 .lastName(userRes.getLastName())
                 .email(userRes.getEmail())
+                .telephone(userRes.getTelephone())
                 .build();
     }
 
@@ -48,6 +50,7 @@ public class UserServiceImpl implements UserService {
             .email(userRequest.getEmail())
             .firstName(userRequest.getFirstName())
             .lastName(userRequest.getLastName())
+                .telephone(userRequest.getTelephone())
             .status(true)
             .password(passwordEncoder.encode(userRequest.getPassword()))
             .role(Role.USER)
@@ -58,6 +61,7 @@ public class UserServiceImpl implements UserService {
                 .firstName(u.getFirstName())
                 .lastName(u.getLastName())
                 .email(u.getEmail())
+                .telephone(u.getTelephone())
                 .build();
     }
 
@@ -77,6 +81,7 @@ public class UserServiceImpl implements UserService {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .email(user.getEmail())
+                .telephone(user.getTelephone())
                 .build();
     }
 }
