@@ -28,6 +28,14 @@ public class FactureServiceImpl implements FactureService {
     }
 
     @Override
+    public void calculFacture(long id) {
+        Facture existingFacture = factureRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Facture not found"));
+        existingFacture.setMontant(1000);
+        factureRepository.save(existingFacture);
+    }
+
+    @Override
     public Facture getFactureById(long id) {
         return factureRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Facture not found"));

@@ -38,4 +38,9 @@ public class FactureController {
     public void deleteFacture(@PathVariable long id) {
         factureService.deleteFacture(id);
     }
+
+    @GetMapping("/calcul/{id}")
+    public void calculFacture(@PathVariable long id) {
+        factureService.calculFacture(id);
+    }
 }

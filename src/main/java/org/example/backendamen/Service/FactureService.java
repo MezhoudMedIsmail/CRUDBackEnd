@@ -10,4 +10,5 @@ public interface FactureService {
     Facture getFactureById(long id);
     List<Facture> getAllFacture();
     void deleteFacture(long id);
+    void calculFacture(long id);
 }
