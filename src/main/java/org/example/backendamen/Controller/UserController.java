@@ -36,6 +36,7 @@ public class UserController {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .email(user.getEmail())
+                .telephone(user.getTelephone())
                 .build();
         return new ResponseEntity<UserResponse>(us, HttpStatus.OK);
     }
@@ -45,6 +46,7 @@ public class UserController {
         u.setFirstName(user.getFirstName());
         u.setLastName(user.getLastName());
         u.setEmail(user.getEmail());
+        u.setTelephone(user.getTelephone());
         return new ResponseEntity<UserResponse>(userClientService.updateUser(id, u), HttpStatus.ACCEPTED);
     }
     @DeleteMapping("/{id}")
